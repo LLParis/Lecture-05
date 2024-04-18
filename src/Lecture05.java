@@ -100,9 +100,17 @@ class Lecture05 {
         // returns true if the set contains at least one odd integer and false
         // otherwise.
         // If passed the empty set, your method should return false.
+        Set<Integer> set1 = Set.of(2, 4, 6, 8, 10);
+        Set<Integer> set2 = Set.of(1, 3, 5, 7, 9);
+
+        System.out.println(hasOdd(set1));
+        System.out.println(hasOdd(set2));
 
         // 10. Write a method removeEvenLength that accepts a set of strings as a
         // parameter and that removes all of the strings of even length from the set.
+        removeEvenLength(strings);
+        System.out.println(strings);
+
 
     }
 
@@ -130,5 +138,24 @@ class Lecture05 {
             }
         }
         return max;
+    }
+
+    public static boolean hasOdd(Set<Integer> set) {
+        for (Integer num : set) {
+            if (num % 2 != 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void removeEvenLength(Set<String> set) {
+        Iterator<String> iterator = set.iterator();
+        while(iterator.hasNext()) {
+            String str = iterator.next();
+            if (str.length() % 2 == 0) {
+                iterator.remove();
+            }
+        }
     }
 }
